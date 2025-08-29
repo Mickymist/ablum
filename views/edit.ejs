@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="h-screen">
+    <div class="h-full bg-zinc-900 p-10 text-white">
+        <a href="/read" class="text-zinc-400 mx-3">Read Page</a>
+        <h1 class="text-3xl mx-3 tracking-tighter mt-6 mb-3">Update Page</h1>
+        <form action="/update/<%=users.id%>" method="post" class=" flex ">
+            <input class="px-5 py-3 mx-3 border-2 outline-none border-zinc-800 rounded-lg" value="<%=users.name%>" name="name" type="text" placeholder="name">
+            <input class="px-5 py-3  mx-3  border-2 outline-none border-zinc-800 rounded-lg" value="<%=users.email%>" name="email" type="text" placeholder="email">
+            <input class="px-5 py-3  mx-3  border-2 outline-none border-zinc-800 rounded-lg" value="<%=users.image%>" name="image" type="text" placeholder="image url">
+            <input type="submit" class="bg-yellow-800 px-5 py-3 outline-none rounded-lg" value="update user">
+        </form>
+    </div>
+</body>
+</html>

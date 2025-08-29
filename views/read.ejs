@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="w-full h-full h-screen">
+    <div class="h-full w-full bg-zinc-900 text-white p-10">
+        <a href="/" class="text-blue-400 mx-3">Create Page</a>
+        <h1 class="text-3xl mx-3 tracking-tighter mt-6 mb-3">All Users Page</h1>
+        <div class="users flex gap-10  flex-wrap">
+            <% users.forEach(function(haruser){%>
+            <div class="user w-72 p-4 bg-zinc-800 rounded-lg">
+                <div class="w-full h-72 rounded-lg bg-zinc-600 mb-3 overflow-hidden">
+                    <img src="<%=haruser.image%>" class="h-full w-full object-top" alt="">
+                </div>
+                <h3 class="text-xl font-semibold "><%=haruser.name%></h3>
+                <h6 class="text-sm tracking-tighter text-zinc-500"><%=haruser.email%></h6>
+                <div class="flex mt-3 gap-3">
+                    <a href="/edit/<%=haruser._id%>" class="text-zinc-600 text-sm">Edit User</a>
+                    <a href="/delete/<%=haruser._id%>" class="text-red-500 text-sm">Delete User</a>
+                </div>
+            </div>
+           <% })%>
+    </div>
+    
+</body>
+</html>
