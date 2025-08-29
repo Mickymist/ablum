@@ -1,7 +1,9 @@
 require('dotenv').config();
 const express = require("express");
+const mongoose = require("mongoose");
+
 const app = express();
-const port = 8080;
+const PORT = process.env.PORT || 8080;
 const path = require("path");
 const userModel = require('./model/user')
 app.set("view engine","ejs");
@@ -9,8 +11,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended:true}));
 app.use(express.static(path.join(__dirname,"public")));
 app.listen(process.env.port,()=>{
-    console.log(`app is listening on port: ${port}`);
+    console.log(`app is listening on port: ${PORT}`);
 });
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("✅ MongoDB connected"))
+.catch(err => console.error("❌ MongoDB error:", err));
 app.get("/",(req,res)=>{
     res.render("index");
 })
