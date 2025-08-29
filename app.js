@@ -3,15 +3,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
+
 const path = require("path");
 const userModel = require('./model/user')
 app.set("view engine","ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended:true}));
 app.use(express.static(path.join(__dirname,"public")));
-app.listen(process.env.port,()=>{
-    console.log(`app is listening on port: ${PORT}`);
+app.listen(PORT, () => {
+    console.log(`✅ App is listening on http://localhost:${PORT}`);
 });
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
